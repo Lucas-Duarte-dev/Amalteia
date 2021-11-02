@@ -1,17 +1,7 @@
-FROM node:14
-
-WORKDIR /usr
-
-COPY package.json ./
-
-COPY tsconfig.json ./
-
-COPY src ./src
-
-RUN ls -a
-
-RUN npm install
-
+FROM node:lts-alpine
+WORKDIR /app
+COPY package.json yarn.* tsconfig.json ./
+RUN yarn install --frozen-lockfile
+COPY . .
 EXPOSE 3333
-
-CMD ["npm","run","dev"]
+CMD ["yarn","dev"]
