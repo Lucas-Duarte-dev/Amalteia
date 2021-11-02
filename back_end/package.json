@@ -6,7 +6,7 @@
   "author": "Lucas Duarte <lucasduarte0951@gmail.com>",
   "description": "Amalteia Backend",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/server.ts"
+    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/infra/http/app.ts"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
