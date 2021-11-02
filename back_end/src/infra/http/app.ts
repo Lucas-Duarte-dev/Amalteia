@@ -1,3 +1,3 @@
-import {app} from "@app/server";
+import {app} from "@infra/http/server";
 
-app.listen(3333);
+app.listen(process.env.PORT || 3333);
