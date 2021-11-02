@@ -17,16 +17,11 @@
     "forceConsistentCasingInFileNames": true /* Disallow inconsistently-cased references to the same file. */,
     "baseUrl": ".",
     "paths": {
-      "@cases/*": ["./src/useCases/*"],
+      "@module/*": ["./src/modules/*"],
       "@config/*": ["./src/config/*"],
-      "@entity/*": ["./src/entities/*"],
-      "@repos/*": ["./src/repositories/*"],
-      "@views/*": ["./src/repositories/*"],
-      "@middle/*": ["./src/middlewares/*"],
-      "@provider/*": ["./src/provider/*"],
-      "@dtos/*": ["./src/dtos/*"],
-      "@app/*": ["./src/*"]
+      "@infra/*": ["./src/infra/*"],
+      "@shared/*": ["./src/shared/*"],
+      "@core/*": ["./src/core/*"],
     }
   },
-  "include": ["src/**/*", "__tests__"]
 }
