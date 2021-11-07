@@ -1,7 +1,7 @@
-import {User} from "@module/Account/entities/User";
+import {IUserDTO} from '../dto/IUserDTO';
 
 interface IUserRepository {
-    create(data: User): Promise<void>
+    create(data: IUserDTO): Promise<void>
 }
 
 export {IUserRepository};
