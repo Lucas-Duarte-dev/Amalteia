@@ -2,7 +2,6 @@ version: "3"
 
 services:
   postgres:
-    hostname: amalteia.postgres.docker
     image: "bitnami/postgresql"
     container_name: database_amalteia
     restart: always
