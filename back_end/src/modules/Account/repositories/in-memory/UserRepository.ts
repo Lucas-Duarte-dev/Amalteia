@@ -1,11 +1,13 @@
 import {IUserRepository} from "@module/Account/repositories/IUserRepository";
-import {User} from "@module/Account/entities/User";
+import {IUserDTO} from "@module/Account/dto/IUserDTO";
 
 class UserRepository implements IUserRepository {
 
-    constructor(public users: User[] = []) {}
+    private users = [];
 
-    async create(data: User): Promise<void> {
+
+
+    async create(data: IUserDTO): Promise<void> {
         this.users.push(data);
     }
 }
