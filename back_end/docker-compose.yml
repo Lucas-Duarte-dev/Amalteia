@@ -18,17 +18,17 @@ services:
       - app-net
 
 
-  app:
-    container_name: amalteia
-    build: .
-    ports:
-      - 3333:3333
-    env_file:
-      - .env
-    volumes:
-      - .:/app
-    depends_on:
-      - postgres
+#  app:
+#    container_name: amalteia
+#    build: .
+#    ports:
+#      - 3333:3333
+#    env_file:
+#      - .env
+#    volumes:
+#      - .:/app
+#    depends_on:
+#      - postgres
 
 networks:
   app-net:
