@@ -6,7 +6,6 @@ export function makeCreateUserController() {
     const userRepository = new UserRepository();
 
     const createUserUseCase = new CreateUserUseCase(userRepository);
-    const createUserController = new CreateUserController(createUserUseCase);
 
-    return createUserController;
+    return new CreateUserController(createUserUseCase);;
 }
