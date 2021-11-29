@@ -8,16 +8,23 @@ type IRequest = {
 }
 
 class CreateUserUseCase {
-    constructor(private userRepository: IUserRepository) {
-    }
+    constructor(
+        private userRepository: IUserRepository
+    ) {}
 
     async execute({name, email, password}: IRequest): Promise<void> {
 
-        const userAlreadyExists = this.userRepository.find()
+        const userAlreadyExists = await this.userRepository.findByEmail(email);
+
+        if (!!userAlreadyExists) {
+            throw new Error('User already exists');
+        }
 
         const passwordHash = await hash(password, 8);
 
-        await this.userRepository.create({name, email, password: passwordHash});
+        const user = {name, email, password: passwordHash};
+
+        await this.userRepository.create(user);
     }
 }
 

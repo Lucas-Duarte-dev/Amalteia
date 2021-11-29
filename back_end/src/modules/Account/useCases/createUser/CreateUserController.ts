@@ -14,10 +14,7 @@ class CreateUserController implements Controller {
        private createUserUseCase: CreateUserUseCase
     ) {}
 
-    async handle(request: CreateUserControllerRequest): Promise<HttpResponse> {
-
-        const {name, email, password} = request;
-
+    async handle({name, email, password}: CreateUserControllerRequest): Promise<HttpResponse> {
         try {
             await this.createUserUseCase.execute({name, email, password});
 
