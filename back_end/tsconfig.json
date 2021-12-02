@@ -9,12 +9,16 @@
     "forceConsistentCasingInFileNames": true,
     "resolveJsonModule": true,
     "baseUrl": "./src",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
     "paths": {
       "@module/*": ["modules/*"],
       "@config/*": ["config/*"],
       "@infra/*": ["infra/*"],
-      "@core/*": ["core/*"]
+      "@core/*": ["core/*"],
+      "@shared/*": ["shared/*"]
     }
   },
-  "include": ["src"]
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
