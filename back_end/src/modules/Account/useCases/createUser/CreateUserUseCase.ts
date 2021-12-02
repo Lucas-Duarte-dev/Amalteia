@@ -1,5 +1,7 @@
 import {IUserRepository} from "@module/Account/repositories/IUserRepository";
 import {hash} from "bcrypt";
+import {inject, injectable} from "tsyringe";
+import {DomainException} from "@infra/http/error/DomainException";
 
 type IRequest = {
     name: string,
@@ -7,8 +9,10 @@ type IRequest = {
     password: string
 }
 
+@injectable()
 class CreateUserUseCase {
     constructor(
+        @inject('UserRepository')
         private userRepository: IUserRepository
     ) {}
 
@@ -16,8 +20,8 @@ class CreateUserUseCase {
 
         const userAlreadyExists = await this.userRepository.findByEmail(email);
 
-        if (!!userAlreadyExists) {
-            throw new Error('User already exists');
+        if (userAlreadyExists) {
+            throw new DomainException('User already exists');
         }
 
         const passwordHash = await hash(password, 8);

@@ -1,9 +1,10 @@
-import {User} from "@module/Account/entities/User";
+import {ICreateUserDTO} from "@module/Account/dto/ICreateUserDTO";
+import {User} from "@module/Account/entity/User";
 
 interface IUserRepository {
-    create(data: User): Promise<void>;
-    find(): Promise<any>;
-    findByEmail(email: string): Promise<any>;
+    create(data: ICreateUserDTO): Promise<void>;
+    find(): Promise<User[]>;
+    findByEmail(email: string): Promise<User>;
 }
 
 export {IUserRepository};

@@ -1,21 +1,34 @@
 import {IUserRepository} from "@module/Account/repositories/IUserRepository";
-import {IUserDTO} from "@module/Account/dto/IUserDTO";
-import {User} from "@module/Account/entities/User";
+import {ICreateUserDTO} from "@module/Account/dto/ICreateUserDTO";
+import {User} from "@module/Account/entity/User";
 
 class UserRepository implements IUserRepository {
 
-    private users: User[] = [];
+    private users: User[];
 
-    async create(data: User): Promise<void> {
-        this.users.push(data);
+    constructor() {
+        this.users = [];
     }
 
-    async find(): Promise<any> {
+    async create({name, password, email}: ICreateUserDTO): Promise<void> {
+
+        const user = new User();
+
+        Object.assign(user, {
+            name,
+            password,
+            email
+        });
+
+        this.users.push(user);
+    }
+
+    async find(): Promise<User[]> {
         return this.users;
     }
 
-    async findByEmail(email: string): Promise<any> {
-        return this.users.filter(user => user.email === email);
+    async findByEmail(email: string): Promise<User> {
+        return this.users.find(user => email === user.email);
     }
 }
 
