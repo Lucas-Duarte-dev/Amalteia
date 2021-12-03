@@ -1,3 +1,4 @@
+import "reflect-metadata";
 import {IUserRepository} from "@module/Account/repositories/IUserRepository";
 import {CreateUserUseCase} from "@module/Account/useCases/createUser/CreateUserUseCase";
 import {UserRepository} from "@module/Account/repositories/in-memory/UserRepository";
@@ -26,11 +27,21 @@ beforeEach(() => {
 
 describe('Create User', () => {
 
-    it('Should not be able create a new user when email passed already exists', async () => {
-         await userUseCase.execute(userData);
+    it('Should be able create a new user', async () => {
+        const expected = "test@example.test";
+        await userUseCase.execute(userData);
+
+        const user = await userRepository.findByEmail(expected);
+
+        expect(user.email).toEqual(expected);
+    });
+
+    it('Should be not able create a new user with same email',  () => {
+        const expected =  {"message": "User already exists", "statusCode": 400};
 
         expect( async () => {
             await userUseCase.execute(userData);
-        }).toThrowError();
-    })
+            await userUseCase.execute(userData);
+        }).rejects.toEqual(expected);
+    });
 })
