@@ -1,0 +1,16 @@
+{
+  "name": "Amalteia",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:Lucas-Duarte-dev/Amalteia.git",
+  "author": "Lucas-Duarte-dev <Lucasduarteb2000@hotmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "husky install"
+  },
+  "devDependencies": {
+    "@commitlint/cli": "^15.0.0",
+    "@commitlint/config-conventional": "^15.0.0",
+    "husky": "^7.0.4"
+  }
+}
