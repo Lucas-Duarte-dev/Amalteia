@@ -8,5 +8,4 @@ const createUserController = new CreateUserController();
 
 accountRoutes.post("/", adaptRoute(createUserController));
 
-
 export {accountRoutes};

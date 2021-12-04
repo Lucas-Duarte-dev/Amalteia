@@ -2,6 +2,7 @@ version: "3"
 
 services:
   postgres:
+    hostname: "postgressql.amalteia.docker"
     image: "bitnami/postgresql"
     container_name: database_amalteia
     restart: always
@@ -27,6 +28,8 @@ services:
       - .:/app
     depends_on:
       - postgres
+    networks:
+      - app-net
 
 networks:
   app-net:

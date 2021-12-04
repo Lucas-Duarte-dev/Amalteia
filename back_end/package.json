@@ -6,7 +6,7 @@
   "author": "Lucas Duarte <lucasduarte0951@gmail.com>",
   "description": "Amalteia Backend",
   "scripts": {
-    "dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules src/infra/http/app.ts",
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch node_modules src/infra/http/app.ts",
     "test": "jest",
     "test:watch": "jest --watchAll",
     "typeorm": "ts-node-dev ./node_modules/typeorm/cli"

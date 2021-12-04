@@ -16,7 +16,6 @@
       "@config/*": ["config/*"],
       "@infra/*": ["infra/*"],
       "@core/*": ["core/*"],
-      "@shared/*": ["shared/*"]
     }
   },
   "include": ["src"],

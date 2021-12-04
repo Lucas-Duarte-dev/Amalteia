@@ -1,7 +1,7 @@
 {
   "type": "postgres",
   "port": 5432,
-  "host": "localhost",
+  "host": "postgressql.amalteia.docker",
   "username": "postgres",
   "password": "postgres",
   "database": "amalteia",
