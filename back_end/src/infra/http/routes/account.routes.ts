@@ -1,11 +1,10 @@
 import {Router} from "express";
 import {adaptRoute} from "@core/infra/adapter/ExpressRouteAdapter";
-import {CreateUserController} from "@module/Account/useCases/createUser/CreateUserController";
+import createUserController from "@infra/http/factory/controller/makeCreateUserController";
 
 const accountRoutes = Router();
 
-const createUserController = new CreateUserController();
 
-accountRoutes.post("/", adaptRoute(createUserController));
+accountRoutes.post("/", adaptRoute(createUserController()));
 
 export {accountRoutes};
