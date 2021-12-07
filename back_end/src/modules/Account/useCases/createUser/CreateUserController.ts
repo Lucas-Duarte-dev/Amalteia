@@ -10,11 +10,14 @@ type CreateUserControllerRequest = {
 }
 
 class CreateUserController implements Controller {
+
+    constructor(
+       private createUserUseCase: CreateUserUseCase
+    ) {}
+
     async handle({name, email, password}: CreateUserControllerRequest): Promise<HttpResponse> {
         try {
-            const createUserUseCase = container.resolve(CreateUserUseCase);
-
-            await createUserUseCase.execute({name, email, password});
+            await this.createUserUseCase.execute({name, email, password});
 
             return created();
         } catch (err) {

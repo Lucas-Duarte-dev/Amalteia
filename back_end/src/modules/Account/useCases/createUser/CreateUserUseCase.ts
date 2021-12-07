@@ -9,10 +9,8 @@ type IRequest = {
     password: string
 }
 
-@injectable()
 class CreateUserUseCase {
     constructor(
-        @inject('UserRepository')
         private userRepository: IUserRepository
     ) {}
 
