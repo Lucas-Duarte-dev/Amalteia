@@ -1,4 +1,5 @@
 import { pathsToModuleNameMapper } from "ts-jest/utils";
+// @ts-ignore
 import { compilerOptions } from "./tsconfig.json";
 
 export default {
