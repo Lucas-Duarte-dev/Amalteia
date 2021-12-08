@@ -1,5 +1,4 @@
 import "reflect-metadata";
-import 'dotenv/config';
 import express, {Request, Response, NextFunction} from "express";
 import {DomainException} from "@infra/http/error/DomainException";
 import createConnection from "@infra/typeorm";
