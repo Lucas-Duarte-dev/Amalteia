@@ -1,7 +1,8 @@
 import "reflect-metadata";
-import {IUserRepository} from "@module/Account/repositories/IUserRepository";
-import {CreateUserUseCase} from "@module/Account/useCases/createUser/CreateUserUseCase";
-import {UserRepository} from "@module/Account/repositories/in-memory/UserRepository";
+import {IUserRepository} from "@module/account/repositories/IUserRepository";
+import {CreateUserUseCase} from "@module/account/useCases/createUser/CreateUserUseCase";
+import {UserRepository} from "@module/account/repositories/in-memory/UserRepository";
+import {compare} from "bcrypt";
 
 interface UserData {
     name: string,
@@ -35,6 +36,18 @@ describe('Create User', () => {
 
         expect(user.email).toEqual(expected);
     });
+
+    it('Should create a hash for password user', async () => {
+        const expected = true;
+
+        await userUseCase.execute(userData);
+
+        const user = await userRepository.findByEmail("test@example.test");
+
+        const result = await compare('12345', user.password);
+
+        expect(result).toEqual(expected);
+    })
 
     it('Should be not able create a new user with same email',  () => {
         const expected =  {"message": "User already exists", "statusCode": 400};

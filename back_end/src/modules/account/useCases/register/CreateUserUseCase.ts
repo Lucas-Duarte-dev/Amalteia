@@ -1,4 +1,4 @@
-import {IUserRepository} from "@module/Account/repositories/IUserRepository";
+import {IUserRepository} from "@module/account/repositories/IUserRepository";
 import {hash} from "bcrypt";
 import {inject, injectable} from "tsyringe";
 import {DomainException} from "@infra/http/error/DomainException";
