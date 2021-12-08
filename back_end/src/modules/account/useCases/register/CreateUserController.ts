@@ -1,6 +1,6 @@
 import {Controller} from "@core/infra/Controller";
 import {created, fail, HttpResponse} from "@core/infra/HttpResponse";
-import {CreateUserUseCase} from "@module/account/useCases/createUser/CreateUserUseCase";
+import {CreateUserUseCase} from "@module/account/useCases/register/CreateUserUseCase";
 import {container} from "tsyringe";
 
 type CreateUserControllerRequest = {

@@ -1,10 +1,10 @@
-import {IUserRepository} from "@module/Account/repositories/IUserRepository";
-import {ICreateUserDTO} from "@module/Account/dto/ICreateUserDTO";
-import {User} from "@module/Account/entity/User";
+import {IUserRepository} from "@module/account/repositories/IUserRepository";
+import {ICreateUserDTO} from "@module/account/dto/ICreateUserDTO";
+import {User} from "@module/account/entity/User";
 
 class UserRepository implements IUserRepository {
 
-    private users: User[];
+    private readonly users: User[];
 
     constructor() {
         this.users = [];

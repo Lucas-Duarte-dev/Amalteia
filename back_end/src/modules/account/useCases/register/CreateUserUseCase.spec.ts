@@ -1,6 +1,6 @@
 import "reflect-metadata";
 import {IUserRepository} from "@module/account/repositories/IUserRepository";
-import {CreateUserUseCase} from "@module/account/useCases/createUser/CreateUserUseCase";
+import {CreateUserUseCase} from "@module/account/useCases/register/CreateUserUseCase";
 import {UserRepository} from "@module/account/repositories/in-memory/UserRepository";
 import {compare} from "bcrypt";
 
