@@ -3,15 +3,33 @@ import {Category} from "@module/categories/entity/Category";
 import {ICategoryDTO} from "@module/categories/dto/ICategoryDTO";
 
 class CategoryRepository implements ICategoryRepository {
+
     private categories: Category[];
 
-
-    create({name, description}: ICategoryDTO): Promise<void> {
-        return Promise.resolve(undefined);
+    constructor() {
+        this.categories = [];
     }
 
-    findById(id: string): Promise<Category> {
-        return Promise.resolve(undefined);
+    async create({name, description}: ICategoryDTO): Promise<void> {
+        const category = new Category();
+
+        Object.assign(category, {
+            name,
+            description
+        });
+
+        this.categories.push(category);
+
+        return;
     }
 
+    async findById(id: string): Promise<Category> {
+        return this.categories.find(category => category.id === id);
+    }
+
+    async findByName(name: string): Promise<Category> {
+        return this.categories.find(category => category.name === name);
+    }
 }
+
+export {CategoryRepository}
