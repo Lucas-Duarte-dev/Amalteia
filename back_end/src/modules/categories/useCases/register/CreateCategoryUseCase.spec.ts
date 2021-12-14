@@ -28,4 +28,13 @@ describe('Create Category', () => {
 
         expect(result.name).toEqual(expected);
    });
+
+   it('Should no ve able create a new category with the same name', () => {
+       const expected =  {"message": "Category already exists", "statusCode": 400};
+
+       expect(async () => {
+           await createCategory.execute(category);
+           await createCategory.execute(category);
+       }).rejects.toEqual(expected);
+   });
 });
