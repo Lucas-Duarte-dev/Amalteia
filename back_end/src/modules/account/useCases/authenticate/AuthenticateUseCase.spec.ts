@@ -1,6 +1,6 @@
 import {IUserRepository} from "@module/account/repositories/IUserRepository";
 import {UserRepository} from "@module/account/repositories/in-memory/UserRepository";
-import {AuthenticateUseCase} from "@module/authenticate/AuthenticateUseCase";
+import {AuthenticateUseCase} from "@module/account/useCases/authenticate/AuthenticateUseCase";
 import {CreateUserUseCase} from "@module/account/useCases/register/CreateUserUseCase";
 import {DomainException} from "@infra/http/error/DomainException";
 
