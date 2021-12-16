@@ -33,6 +33,8 @@ class AuthenticateUseCase {
             expiresIn: '1d'
         });
 
+        delete user.password;
+
         return {user, token};
     }
 }
