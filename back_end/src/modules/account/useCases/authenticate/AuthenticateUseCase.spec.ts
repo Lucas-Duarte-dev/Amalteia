@@ -39,4 +39,17 @@ describe('Authenticate User', () => {
         }).rejects.toEqual({message: 'Unauthorized', statusCode: 401});
     });
 
+    it('Should received user object without password', async () => {
+        const result = await authenticateUseCase.execute('test@example.test', '12345');
+
+        const expected = {
+                id: result.user.id,
+                isAdmin: false,
+                name: 'Lucas',
+                email: 'test@example.test',
+        }
+
+        expect(result.user).toEqual(expected);
+    });
+
 });
