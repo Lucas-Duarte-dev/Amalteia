@@ -5,9 +5,18 @@ import {User} from "@module/account/entity/User";
 class UserRepository implements IUserRepository {
 
     private readonly users: User[];
+    private static instance: UserRepository;
 
     constructor() {
         this.users = [];
+    }
+
+    public static getInstance(): UserRepository {
+        if (!UserRepository.instance) {
+            UserRepository.instance = new UserRepository();
+        }
+
+        return UserRepository.instance;
     }
 
     async create({name, password, email}: ICreateUserDTO): Promise<void> {
