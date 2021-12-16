@@ -1,7 +1,6 @@
 import {Controller} from "@core/infra/Controller";
-import {created, fail, HttpResponse} from "@core/infra/HttpResponse";
+import {created,forbidden, HttpResponse} from "@core/infra/HttpResponse";
 import {CreateUserUseCase} from "@module/account/useCases/register/CreateUserUseCase";
-import {container} from "tsyringe";
 
 type CreateUserControllerRequest = {
     name: string,
@@ -21,7 +20,7 @@ class CreateUserController implements Controller {
 
             return created();
         } catch (err) {
-            return fail(err);
+            return forbidden(err);
         }
     }
 
