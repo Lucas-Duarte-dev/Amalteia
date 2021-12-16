@@ -3,7 +3,7 @@ import {CreateUserUseCase} from "@module/account/useCases/register/CreateUserUse
 import {CreateUserController} from "@module/account/useCases/register/CreateUserController";
 
 export default function makeCreateUserController() {
-    const userRepository = new UserRepository();
+    const userRepository = UserRepository.getInstance();
 
     const createUserUseCase = new CreateUserUseCase(userRepository);
 
