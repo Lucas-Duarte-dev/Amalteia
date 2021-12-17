@@ -4,8 +4,6 @@ import {DomainException} from "@infra/http/error/DomainException";
 import createConnection from "@infra/typeorm";
 import {routes} from "@infra/http/routes";
 
-createConnection();
-
 const app = express();
 
 app.use(express.json());
