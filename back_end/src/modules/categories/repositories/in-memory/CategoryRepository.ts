@@ -5,9 +5,18 @@ import {ICategoryDTO} from "@module/categories/dto/ICategoryDTO";
 class CategoryRepository implements ICategoryRepository {
 
     private categories: Category[];
+    private static instance: CategoryRepository;
 
     constructor() {
         this.categories = [];
+    }
+
+    public static getInstance(): CategoryRepository {
+        if (!CategoryRepository.instance) {
+            CategoryRepository.instance = new CategoryRepository();
+        }
+
+        return CategoryRepository.instance;
     }
 
     async create({name, description}: ICategoryDTO): Promise<void> {
