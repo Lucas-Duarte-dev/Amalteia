@@ -4,7 +4,7 @@ import {CreateCategoryController} from "@module/categories/useCases/register/Cre
 
 
 export default function makeCreateCategoryController() {
-    const categoryRepository = new CategoryRepository();
+    const categoryRepository = CategoryRepository.getInstance();
 
     const createCategoryUseCase = new CreateCategoryUseCase(categoryRepository);
 
