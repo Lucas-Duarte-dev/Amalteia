@@ -34,7 +34,7 @@ class AuthenticateUseCase {
         });
 
         delete user.password;
-
+        delete user.password_confirmed;
         return {user, token};
     }
 }

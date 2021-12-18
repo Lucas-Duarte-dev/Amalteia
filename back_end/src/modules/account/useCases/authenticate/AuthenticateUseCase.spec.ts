@@ -17,7 +17,8 @@ describe('Authenticate User', () => {
         await createUserUseCase.execute({
             name: 'Lucas',
             email: 'test@example.test',
-            password: '12345'
+            password: '12345',
+            password_confirmed: '12345'
         });
     })
 
@@ -43,10 +44,12 @@ describe('Authenticate User', () => {
         const result = await authenticateUseCase.execute('test@example.test', '12345');
 
         const expected = {
+                created_at: result.user.created_at,
                 id: result.user.id,
                 isAdmin: false,
                 name: 'Lucas',
                 email: 'test@example.test',
+                updated_at: result.user.updated_at
         }
 
         expect(result.user).toEqual(expected);
