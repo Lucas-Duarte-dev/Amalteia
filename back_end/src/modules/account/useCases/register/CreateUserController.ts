@@ -5,7 +5,8 @@ import {CreateUserUseCase} from "@module/account/useCases/register/CreateUserUse
 type CreateUserControllerRequest = {
     name: string,
     email: string,
-    password: string
+    password: string,
+    password_confirmed: string
 }
 
 class CreateUserController implements Controller {
@@ -14,9 +15,9 @@ class CreateUserController implements Controller {
        private createUserUseCase: CreateUserUseCase
     ) {}
 
-    async handle({name, email, password}: CreateUserControllerRequest): Promise<HttpResponse> {
+    async handle({name, email, password, password_confirmed}: CreateUserControllerRequest): Promise<HttpResponse> {
         try {
-            await this.createUserUseCase.execute({name, email, password});
+            await this.createUserUseCase.execute({name, email, password, password_confirmed});
 
             return created();
         } catch (err) {

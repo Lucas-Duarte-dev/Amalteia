@@ -12,6 +12,7 @@ describe('Create User', () => {
                 name: 'Lucas Test',
                 email: 'test@example.com',
                 password: '123456',
+                password_confirmed: '123456'
             });
 
         expect(response.status).toEqual(expected);
@@ -26,6 +27,7 @@ describe('Create User', () => {
                 name: 'Jorge Test',
                 email: 'test@example.com',
                 password: '123456',
+                password_confirmed: '123456'
             });
 
         expect(response.status).toEqual(expected);

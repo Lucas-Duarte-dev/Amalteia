@@ -3,11 +3,13 @@ import {IUserRepository} from "@module/account/repositories/IUserRepository";
 import {CreateUserUseCase} from "@module/account/useCases/register/CreateUserUseCase";
 import {UserRepository} from "@module/account/repositories/in-memory/UserRepository";
 import {compare} from "bcrypt";
+import exp from "constants";
 
 interface UserData {
     name: string,
     email: string,
-    password: string
+    password: string,
+    password_confirmed: string
 }
 
 let userRepository: IUserRepository;
@@ -21,7 +23,8 @@ beforeEach(() => {
     userData = {
        name: 'Lucas',
        email: 'test@example.test',
-       password: '12345'
+       password: '12345',
+       password_confirmed: '12345'
    }
 });
 
@@ -47,7 +50,20 @@ describe('Create User', () => {
         const result = await compare('12345', user.password);
 
         expect(result).toEqual(expected);
-    })
+    });
+
+    it('Should not be able create a new user when password dont match', () => {
+        const expected =  {"message": "Password not match", "statusCode": 403};
+
+        expect(async () => {
+            await userUseCase.execute({
+                name: 'Test',
+                email: 'test@example.test',
+                password: '12345',
+                password_confirmed: '1234'
+            });
+        }).rejects.toEqual(expected);
+    });
 
     it('Should be not able create a new user with same email',  () => {
         const expected =  {"message": "User already exists", "statusCode": 400};
