@@ -19,29 +19,22 @@ class UserRepository implements IUserRepository {
         return UserRepository.instance;
     }
 
-    async create({name, password, email}: ICreateUserDTO): Promise<void> {
+    async create({name, password, email, password_confirmed}: ICreateUserDTO): Promise<void> {
 
         const user = new User();
 
         Object.assign(user, {
             name,
+            email,
             password,
-            email
+            password_confirmed
         });
 
         this.users.push(user);
     }
 
-    async find(): Promise<User[]> {
-        return this.users;
-    }
-
     async findByEmail(email: string): Promise<User> {
         return this.users.find(user => user.email === email);
-    }
-
-    async findById(id: string): Promise<User> {
-        return this.users.find(user => user.id === id);
     }
 }
 
