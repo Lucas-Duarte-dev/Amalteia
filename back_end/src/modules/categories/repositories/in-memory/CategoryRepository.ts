@@ -35,6 +35,12 @@ class CategoryRepository implements ICategoryRepository {
     async findByName(name: string): Promise<Category> {
         return this.categories.find(category => category.name === name);
     }
+
+    async update(old_name: string, new_name: string): Promise<Category> {
+        const category = this.categories.find(category => category.name === old_name);
+        category.name = new_name
+        return category;
+    }
 }
 
 export {CategoryRepository}
