@@ -39,7 +39,7 @@ describe('Authenticate User', () => {
         const expected = {message: 'Unauthorized', statusCode: 401};
 
         expect(async () => {
-            await authenticateUseCase.execute('artes', 'biologia');
+            await authenticateUseCase.execute('test@example.test', '1234');
         }).rejects.toEqual(expected);
     });
 
@@ -57,5 +57,4 @@ describe('Authenticate User', () => {
 
         expect(result.user).toEqual(expected);
     });
-
 });
