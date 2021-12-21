@@ -2,7 +2,6 @@ import {IUserRepository} from "@module/account/repositories/IUserRepository";
 import {UserRepository} from "@module/account/repositories/in-memory/UserRepository";
 import {AuthenticateUseCase} from "@module/account/useCases/authenticate/AuthenticateUseCase";
 import {CreateUserUseCase} from "@module/account/useCases/register/CreateUserUseCase";
-import {DomainException} from "@infra/http/error/DomainException";
 
 let userRepository: IUserRepository;
 let authenticateUseCase: AuthenticateUseCase;
@@ -28,16 +27,20 @@ describe('Authenticate User', () => {
        expect(result).toHaveProperty('token');
     });
 
-    it('Should not be able send a new token to the user with invalid email',  () => {
-      expect(async () => {
-          await authenticateUseCase.execute('invalid@example.test', '12345');
-      }).rejects.toEqual({message: 'Unauthorized', statusCode: 401});
+    it('Should not be able send a new token to the user with invalid email', () => {
+        const expected = {message: 'Unauthorized', statusCode: 401};
+
+        expect(async () => {
+            await authenticateUseCase.execute('invalid@example.test', '12345');
+        }).rejects.toEqual(expected);
     });
 
-    it('Should not be able send a new token to the user with invalid password',  () => {
+    it('Should not be able send a new token to the user with invalid password', () => {
+        const expected = {message: 'Unauthorized', statusCode: 401};
+
         expect(async () => {
-            await authenticateUseCase.execute('test@example.test', '1234');
-        }).rejects.toEqual({message: 'Unauthorized', statusCode: 401});
+            await authenticateUseCase.execute('artes', 'biologia');
+        }).rejects.toEqual(expected);
     });
 
     it('Should received user object without password', async () => {
