@@ -10,7 +10,7 @@ let category: Category;
 
 describe('Create Category', () => {
    beforeEach(() => {
-        categoryRepository = new CategoryRepository();
+        categoryRepository = CategoryRepository.getInstance();
         createCategory = new CreateCategoryUseCase(categoryRepository);
 
         category = {
@@ -33,7 +33,6 @@ describe('Create Category', () => {
        const expected =  {"message": "Category already exists", "statusCode": 400};
 
        expect(async () => {
-           await createCategory.execute(category);
            await createCategory.execute(category);
        }).rejects.toEqual(expected);
    });
