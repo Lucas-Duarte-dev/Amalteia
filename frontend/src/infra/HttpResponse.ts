@@ -3,81 +3,67 @@ export type HttpResponse = {
     body: any
 }
 
-export function ok<T>(dto?: T): HttpResponse {
+export function ok(): HttpResponse {
     return {
         statusCode: 200,
-        body: dto,
+        body: 'Sucesso!',
     }
 }
 
-export function created(): HttpResponse {
+export function created(action: string): HttpResponse {
     return {
         statusCode: 201,
-        body: undefined,
+        body: `criação da ${action} realizada!`,
     }
 }
 
-export function clientError(error?: Error): HttpResponse {
+export function clientError(): HttpResponse {
     return {
         statusCode: 400,
-        body: {
-                error: error?.message,
-        },
+        body: 'Tivemos um problema no servidor!',
     }
 }
 
-export function unauthorized(error?: Error): HttpResponse {
+export function unauthorized(): HttpResponse {
     return {
         statusCode: 401,
-        body: {
-            error: error?.message,
-        },
+        body: 'Não autorizado'
     }
 }
 
-export function forbidden(error?: Error): HttpResponse {
+export function forbidden(): HttpResponse {
     return {
         statusCode: 403,
-        body: {
-            error: error?.message,
-        },
+        body: 'Forbidden'
     }
 }
 
-export function notFound(error?: Error): HttpResponse {
+export function notFound(message: string): HttpResponse {
     return {
         statusCode: 404,
-        body: {
-            error: error?.message,
-        },
+        body: `não encontramos ${message}`
     }
 }
 
-export function conflict(error?: Error): HttpResponse {
+export function conflict(): HttpResponse {
     return {
         statusCode: 409,
-        body: {
-            error: error?.message,
-        },
+        body: 'Houve um conflito!'
     }
 }
 
-export function tooMany(error?: Error): HttpResponse {
+export function tooMany(): HttpResponse {
     return {
         statusCode: 429,
-        body: {
-            error: error?.message,
-        },
+        body: 'Too Many'
     }
 }
 
-export function fail(error?: Error) {
-    console.log(error)
-
+export function fail() {
     return {
         statusCode: 500,
         body: {
-            error: error?.message,
+            error: 'Algo deu errado',
         },
     }
 }
