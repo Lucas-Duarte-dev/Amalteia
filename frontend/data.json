@@ -1,0 +1,14 @@
+{
+  "categories": [
+    {
+      "id": 1,
+      "name": "Ciência",
+      "description": "Tudo que envolve ciência"
+    },
+    {
+      "id": 2,
+      "name": "Biologia",
+      "description": "Tudo sobre biologia"
+    }
+  ]
+}
