@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {Item} from "./item";
 import {getApiClientAxios} from "../../../../infra/http/axios";
+import {api} from "../../../../infra/http/api";
 
 type Response = {
     id: string|number;
@@ -13,7 +14,7 @@ export function Categories() {
     const [categoriesResponse, setCategoriesResponse] = useState<Response[] | undefined>([]);
 
     useEffect(() => {
-        getApiClientAxios().get('/categories')
+        api.get('/categories')
             .then(response => setCategoriesResponse(response.data));
     }, [])
 
