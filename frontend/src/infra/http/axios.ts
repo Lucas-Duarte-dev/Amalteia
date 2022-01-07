@@ -4,7 +4,7 @@ export function getApiClientAxios(): AxiosInstance {
     const token = localStorage.getItem('amalteia:token');
 
     const api = axios.create({
-        baseURL: `https://imobeflexbackend.herokuapp.com/`,
+        baseURL: `http://localhost:3333`,
     });
 
     if (token) {
