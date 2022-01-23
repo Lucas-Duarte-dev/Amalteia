@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react";
 import {Item} from "./item";
-import {getApiClientAxios} from "../../../../infra/http/axios";
-import {api} from "../../../../infra/http/api";
+import {api} from "../../../../infra/services/api";
 
 type Response = {
     id: string|number;
