@@ -1,0 +1,39 @@
+@use 'src/presentation/styles/variables';
+
+.category_wrapper {
+  @extend %define_size;
+  padding: variables.$padding;
+
+  .category_label {
+    margin-top: 1.8rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: 700;
+
+
+    span {
+      font-size: 1.3rem;
+      color: variables.$paragraph-color;
+    }
+
+    a {
+      color: lighten(variables.$blue-100, 5%);
+      transition: all 0.3s ease-in;
+    }
+
+    a:hover {
+      text-decoration: underline;
+      color: darken(variables.$blue-100, 10%);
+    }
+  }
+
+
+  .category_list {
+    margin-top: 0.7rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+}
+
+

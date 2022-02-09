@@ -1,0 +1,21 @@
+// Colors
+$paragraph-color: #D1D5DE !default;
+$white: #ffffff;
+$h-color: #FFEEDB !default;
+$main-color: #050d1a !default;
+$black: #080705 !default;
+$black-300: #242325 !global;
+$gray-200: #C8C8C8 !global;
+$blue-100: #E6FAFC !global;
+$blue-600: #37505C !global;
+$blue-900: #172A3A !global;
+
+// Sizes
+$header-height: 5rem !global;
+$padding: 2rem;
+
+%define_size {
+  width: 100%;
+  max-width: 1500px;
+  margin: 0 auto;
+}

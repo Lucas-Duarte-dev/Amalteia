@@ -9,7 +9,8 @@
     "dev": "ts-node-dev -r tsconfig-paths/register --inspect --respawn --transpile-only --ignore-watch node_modules src/infra/http/app.ts",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "typeorm": "ts-node-dev ./node_modules/typeorm/cli"
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli",
+    "build": "tsc"
   },
   "devDependencies": {
     "@types/bcrypt": "^5.0.0",

@@ -1,0 +1,58 @@
+@use 'src/presentation/styles/variables';
+
+%generic-flex {
+  display: flex;
+  align-items: center;
+}
+
+.header_wrapper {
+  width: 100%;
+  height: variables.$header-height;
+  background: lighten(variables.$main-color, 5%);
+  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+
+  > div {
+    @extend %generic-flex;
+    @extend %define_size;
+
+    padding: 0 variables.$padding;
+    justify-content: space-between;
+
+    .search {
+      position: relative;
+
+      > button {
+        background: transparent;
+        border: none;
+        position: absolute;
+        right: 25px;
+        top: 50%;
+        transform: translate(50%, -50%);
+
+        > svg {
+          height: 1.35rem;
+          width: 1.35rem;
+        }
+      }
+
+      > input {
+        width: 22rem;
+        height: 2rem;
+        border-radius: 0.4rem;
+        border: none;
+        padding-left: 0.4rem;
+        font-size: 1rem;
+      }
+    }
+
+    > svg {
+      color: variables.$gray-200;
+      height: 2rem;
+      width: 2rem;
+      cursor: pointer;
+    }
+  }
+}
+

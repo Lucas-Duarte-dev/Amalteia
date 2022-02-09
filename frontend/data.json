@@ -3,12 +3,14 @@
     {
       "id": 1,
       "name": "Ciência",
-      "description": "Tudo que envolve ciência"
+      "description": "Tudo que envolve ciência",
+      "image": "https://museudoamanha.org.br/sites/default/files/119%20Ciencia6h30_Site2.png"
     },
     {
       "id": 2,
       "name": "Biologia",
-      "description": "Tudo sobre biologia"
+      "description": "Tudo sobre biologia",
+      "image": "https://capitalaberto.com.br/wp-content/uploads/2021/08/23.08__dest_Resenha-Biologia.jpg"
     }
   ]
 }
